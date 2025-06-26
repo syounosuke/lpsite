@@ -107,6 +107,11 @@ body {
     box-shadow: inset 5px 5px 15px #d1d1d1, inset -5px -5px 15px #ffffff;
 }
 
+.link-button:active {
+    transform: scale(0.98); /* クリック時にわずかに縮む */
+    box-shadow: inset 2px 2px 5px #d1d1d1, inset -2px -2px 5px #ffffff; /* 影も変化 */
+}
+
 .link-button i {
     margin-right: 15px;
     font-size: 1.6rem;
@@ -151,4 +156,41 @@ body {
         width: 100px;
         height: 100px;
     }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px); /* より下から浮き上がるように変更 */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated-item {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.profile-image.animated-item {
+    animation-delay: 0.1s;
+}
+
+.profile h1.animated-item {
+    animation-delay: 0.2s;
+}
+
+.profile .catchphrase.animated-item {
+    animation-delay: 0.3s;
+}
+
+.profile .introduction.animated-item {
+    animation-delay: 0.4s;
+}
+
+.link-button.animated-item {
+    animation-delay: var(--animation-delay);
 }
