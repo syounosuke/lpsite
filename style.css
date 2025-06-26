@@ -1,82 +1,154 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+JP:wght@400;500&display=swap');
+
+/*
+  Poppins for headings (English)
+  Noto Sans JP for body text (Japanese)
+*/
+
+:root {
+    --primary-color: #3498db;
+    --background-start: #e8f5e9; /* Light Green Start */
+    --background-end: #c8e6c9;   /* Light Green End */
+    --text-primary: #2c3e50;
+    --text-secondary: #596e79;
+    --card-bg: rgba(255, 255, 255, 0.75);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
 body {
-    font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'sans-serif';
-    background-color: #FFFFFF;
-    color: #333333;
+    font-family: 'Noto Sans JP', sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--background-start), var(--background-end));
+    color: var(--text-primary);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    box-sizing: border-box;
 }
 
 .container {
-    text-align: center;
-    padding: 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px var(--shadow-color);
+    padding: 40px;
     max-width: 600px;
     width: 100%;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px var(--shadow-color);
 }
 
 .profile h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
     margin: 0;
-    font-size: 2.5em;
+    color: var(--text-primary);
 }
 
 .profile .catchphrase {
-    font-size: 1.2em;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
     margin: 10px 0;
-    color: #555;
+    color: var(--text-secondary);
 }
 
 .profile .introduction {
-    font-size: 1em;
-    line-height: 1.6;
-    margin: 20px 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 15px 0 0;
+    color: var(--text-secondary);
 }
 
 .links {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-top: 30px;
+    gap: 18px;
 }
 
 .link-button {
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 5px 5px 15px #d1d1d1, -5px -5px 15px #ffffff;
+    padding: 15px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
     text-decoration: none;
-    color: #333333;
-    font-size: 1.1em;
-    transition: all 0.3s ease;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
 }
 
 .link-button:hover {
-    background-color: #007AFF;
-    color: #FFFFFF;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 5px 5px 15px #d1d1d1, inset -5px -5px 15px #ffffff;
 }
 
 .link-button i {
     margin-right: 15px;
-    font-size: 1.5em;
+    font-size: 1.6rem;
+    width: 30px; /* Ensure icons align well */
+    text-align: center;
+    color: var(--primary-color);
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
+.link-button:hover i {
+    transform: scale(1.1);
+}
+
+/* Add specific hover colors for each button */
+.link-button.blog:hover { color: #f39c12; }
+.link-button.blog:hover i { color: #f39c12; }
+
+.link-button.twitter:hover { color: #1da1f2; }
+.link-button.twitter:hover i { color: #1da1f2; }
+
+.link-button.note:hover { color: #2ecc71; }
+.link-button.note:hover i { color: #2ecc71; }
+
+.link-button.youtube:hover { color: #e74c3c; }
+.link-button.youtube:hover i { color: #e74c3c; }
+
+
 @media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 25px;
+    }
     .profile h1 {
-        font-size: 2em;
+        font-size: 2rem;
     }
-
     .profile .catchphrase {
-        font-size: 1em;
+        font-size: 1rem;
     }
-
-    .link-button {
-        padding: 12px 15px;
-        font-size: 1em;
+    .profile-image {
+        width: 100px;
+        height: 100px;
     }
 }
