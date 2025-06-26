@@ -1,0 +1,82 @@
+body {
+    font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'sans-serif';
+    background-color: #FFFFFF;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.profile h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.profile .catchphrase {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #555;
+}
+
+.profile .introduction {
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.link-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333333;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+.link-button:hover {
+    background-color: #007AFF;
+    color: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.link-button i {
+    margin-right: 15px;
+    font-size: 1.5em;
+}
+
+@media (max-width: 480px) {
+    .profile h1 {
+        font-size: 2em;
+    }
+
+    .profile .catchphrase {
+        font-size: 1em;
+    }
+
+    .link-button {
+        padding: 12px 15px;
+        font-size: 1em;
+    }
+}
