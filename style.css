@@ -23,7 +23,16 @@ body {
     font-family: 'Noto Sans JP', sans-serif;
     margin: 0;
     padding: 20px;
-    background: linear-gradient(135deg, var(--bg-grad-start), var(--bg-grad-mid), var(--bg-grad-end));
+    /* 既存のグラデーションと星の背景を重ねる */
+    background-image:
+        radial-gradient(white 1px, transparent 0),
+        radial-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 0),
+        radial-gradient(rgba(255, 255, 255, 0.6) 2px, transparent 0),
+        radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 0),
+        linear-gradient(135deg, var(--bg-grad-start), var(--bg-grad-mid), var(--bg-grad-end));
+    background-size: 500px 500px, 400px 400px, 300px 300px, 200px 200px, 100% 100%;
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+    animation: star-move 60s linear infinite;
     color: var(--text-primary);
     display: flex;
     justify-content: center;
@@ -31,6 +40,15 @@ body {
     min-height: 100vh;
     box-sizing: border-box;
     overflow-x: hidden; /* Hide horizontal scrollbar from animations */
+}
+
+@keyframes star-move {
+    from {
+        background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+    }
+    to {
+        background-position: 1000px 1000px, 800px 800px, 600px 600px, 400px 400px, 0 0;
+    }
 }
 
 /* 2. MAIN CONTAINER & LAYOUT ================================= */
@@ -225,4 +243,94 @@ h1.animated-item { animation-delay: 0.2s; }
 
 .link-button.animated-item {
     animation-delay: var(--animation-delay);
+}
+
+.link-button.blog { --animation-delay: 0.5s; }
+.link-button.twitter { --animation-delay: 0.6s; }
+.link-button.note { --animation-delay: 0.7s; }
+.link-button.youtube { --animation-delay: 0.8s; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .profile h1 {
+        font-size: 2.2rem;
+    }
+
+    .profile .catchphrase {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile h1 {
+        font-size: 2rem;
+    }
+
+    .profile .catchphrase {
+        font-size: 1rem;
+    }
+
+    .link-button {
+        padding: 15px 20px;
+        font-size: 1rem;
+    }
+
+    .link-button i {
+        font-size: 1.3rem;
+    }
+}
+
+/* Popular Articles Section */
+#popular-articles {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.articles-container {
+    display: flex;
+    flex-direction: column; /* 縦並びに変更 */
+    gap: 20px;
+}
+
+.article-card {
+    border: 1px solid var(--shadow-light);
+    box-shadow: 0 8px 16px var(--shadow-dark);
+    border-radius: 15px;
+    text-align: left;
+    background: var(--card-bg);
+    overflow: hidden; /* Ensures the image corners are rounded */
+    margin-bottom: 20px; /* 縦方向の余白を追加 */
+}
+
+.article-card a {
+    text-decoration: none;
+    color: var(--text-primary);
+    display: block;
+}
+
+.article-card img {
+    width: 100%;
+    height: 200px; /* 固定の高さ */
+    object-fit: cover; /* 画像が領域を覆うように調整 */
+    object-position: top; /* 画像の上端を基準に表示 */
+    display: block;
+}
+
+.article-card p {
+    padding: 15px;
+    margin: 0;
 }
